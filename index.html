@@ -1,44 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-    <title>Calculus</title>
+  <title>Calculus</title>
 
-    <link rel="icon" href="toti.ico">
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="toti.ico">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" readonly value="0">
-        <div class="buttons">
-            <button onclick="send('7')">7</button>
-            <button onclick="send('8')">8</button>
-            <button onclick="send('9')">9</button>
-            <button class="operator" onclick="send('/')">/</button>
+  <div class="calculator">
 
-            <button onclick="send('4')">4</button>
-            <button onclick="send('5')">5</button>
-            <button onclick="send('6')">6</button>
-            <button class="operator" onclick="send('*')">*</button>
+    <input type="text" id="display" readonly value="0">
 
-            <button onclick="send('1')">1</button>
-            <button onclick="send('2')">2</button>
-            <button onclick="send('3')">3</button>
-            <button class="operator" onclick="send('-')">-</button>
+    <button class="opener"><<</button>
 
-            <button onclick="send('0')">0</button>
-            <button onclick="send('.')">.</button>
-            <button class="operator" onclick="send('=')">=</button>
-            <button class="operator" onclick="send('+')">+</button>
+    <div class="buttons">
+      <button onclick="send('7')">7</button>
+      <button onclick="send('8')">8</button>
+      <button onclick="send('9')">9</button>
+      <button class="operator" onclick="send('/')">÷</button>
 
-            <button class="clear" onclick="send('C')">C</button>
-        </div>
+      <button onclick="send('4')">4</button>
+      <button onclick="send('5')">5</button>
+      <button onclick="send('6')">6</button>
+      <button class="operator" onclick="send('*')">×</button>
+
+      <button onclick="send('1')">1</button>
+      <button onclick="send('2')">2</button>
+      <button onclick="send('3')">3</button>
+      <button class="operator" onclick="send('-')">-</button>
+
+      <button onclick="send('0')">0</button>
+      <button onclick="send('.')">.</button>
+      <button class="operator" onclick="send('=')">=</button>
+      <button class="operator" onclick="send('+')">+</button>
+
+      <button class="clear" onclick="send('C')">C</button>
     </div>
 
-    <script src="transmitter.js"></script>
+    <div class="advanced-window">
+
+      <button onclick="send('(')">(</button>
+      <button onclick="send(')')">)</button>
+      <button onclick="send('exp')">e</button>
+      <button onclick="send('pi')">π</button>
+
+      <button onclick="send('sin')">sin</button>
+      <button onclick="send('cos')">cos</button>
+      <button onclick="send('tan')">tan</button>
+      <button onclick="send('cot')">cot</button>
+
+      <button onclick="send('log')">log</button>
+      <button onclick="send('ln')">ln</button>
+
+
+      <button onclick="send('factorial')">x!</button>
+      <button onclick="send('sqrt')">√</button>
+      <button onclick="send('cbrt')">∛</button>
+      <button onclick="send('root')">ʸ√x</button>
+      
+      <button onclick="send('power2')">x²</button>
+      <button onclick="send('power')">xʸ</button>
+
+      <button onclick="send()">km → mi</button>
+      <button onclick="send()">mi → km</button>
+      <button onclick="send()">°C → °F</button>
+      <button onclick="send()">°F → °C</button>
+
+
+    </div>
+
+  </div>
+
+  <script src="transmitter.js"></script>
 
 </body>
 </html>

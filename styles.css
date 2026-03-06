@@ -10,10 +10,10 @@ body {
 }
 
 .calculator { 
+  position: relative;
   background-color: #ecf0f1; 
   padding: 20px; 
-  border-radius: 10px; 
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.3); 
+  border-radius: 10px;
   width: 250px; 
 }
 
@@ -66,4 +66,46 @@ button:hover {
 
 .clear:hover { 
   background-color: #2980b9; 
+}
+
+.opener {
+  position: absolute;
+  top: 3px;
+  left: 10px;
+  padding: 0;
+  font-size: 15px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.opener:hover {
+  background: none;
+} 
+
+.advanced-window {
+  position: absolute;
+  top: 0;
+  right: 97%;
+  background-color: #ecf0f1; 
+  padding: 20px;  
+  width: 250px;
+  height: 358px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px; 
+  opacity: 0;
+  transform: translateX(30px);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+  gap: 10px; 
+}
+
+.advanced-window.open {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  visibility: visible;
 }

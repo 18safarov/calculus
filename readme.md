@@ -46,7 +46,3 @@ In future releases the plan is to introduce an **Advanced Functions** extension,
 - Square root and nth-root
 - Power / factorial
 - Constants (π, e) etc.
-
-## License
-
-MIT

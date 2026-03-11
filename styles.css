@@ -39,10 +39,26 @@ body {
   padding: 5px; 
 }
 
+#display::placeholder {
+  color: #000000;
+  opacity: 1;
+}
+
 .buttons { 
   display: grid; 
   grid-template-columns: 1fr 1fr 1fr 1fr; 
   gap: 10px; 
+}
+
+.transfer-function,
+.zero {
+  grid-column: span 2;
+}
+
+.equal {
+  grid-column: span 2;
+  background-color: #e74c3c;
+  color: white;
 }
 
 button { 
@@ -69,7 +85,7 @@ button:hover {
 }
 
 .clear { 
-  grid-column: span 4; 
+  grid-column: span 2; 
   background-color: #3498db; 
   color: white; 
 }

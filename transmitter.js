@@ -16,7 +16,7 @@ function send(button_value) {
   });
 }
 
-// wrapper called by the root button in HTML
+// wrapper called by the root button in html
 function sendRootButton() {
   const token = _rootStates[_rootStateIndex];
   send(token);
@@ -42,5 +42,16 @@ opener.addEventListener('click', function() {
     opener.textContent = '>>';
   } else {
     opener.textContent = '<<';
+  }
+});
+
+// allow pressing Enter when typing in the display to evaluate
+const display = document.getElementById('display');
+display.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    pywebview.api.evaluate(display.value).then(function(result) {
+      display.value = result;
+    });
+    e.preventDefault();
   }
 });

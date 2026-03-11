@@ -18,28 +18,74 @@ class CalculatorAPI:
         return self.advanced_open
 
     def button_pressed(self, char):
-        if char == 'C':
-            self.current_value = ""
-            return self.current_value
 
-        if char == '=':
-            try:
-                expr = sympy.sympify(self.current_value)        # string → expression
-                self.current_value = str(sympy.N(expr))         # result
-            except Exception:
-                self.current_value = "Error"
-            self.reset_next = True
+        match char:
+            case 'C':
+                self.current_value = ""
+                return self.current_value
+            
+            # kilometer to mile
+            case 'km_to_mi':
+                try:
+                    km = float(self.current_value)
+                    mi = km * 0.62137119    
+                    self.current_value = f"{mi:.13g}"
+                except ValueError:
+                    self.current_value = "Error"
+                self.reset_next = True
+                return self.current_value
+            
+            # mile to kilometer
+            case 'mi_to_km':
+                try:
+                    mi = float(self.current_value)
+                    km = mi * 1.609344
+                    self.current_value = f"{km:.13g}"
+                except ValueError:
+                    self.current_value = "Error"
+                self.reset_next = True
+                return self.current_value
+            
+            # celsius to fahrenheit
+            case 'c_to_f':
+                try:
+                    c = float(self.current_value)
+                    f = c * 9/5 + 32
+                    self.current_value = f"{f:.13g}"
+                except ValueError:
+                    self.current_value = "Error"
+                self.reset_next = True
+                return self.current_value
+            
+            # fahrenheit to celsius
+            case 'f_to_c':
+                try:
+                    f = float(self.current_value)
+                    c = (f - 32) * 5/9
+                    self.current_value = f"{c:.13g}"
+                except ValueError:
+                    self.current_value = "Error"
+                self.reset_next = True
+                return self.current_value
 
-            try:
-                result = float(self.current_value)
-                if result.is_integer():
-                    self.current_value = str(int(result))  # 5.0 -> 5
-                else:
-                    self.current_value = f"{result:.13g}"  # limit to 13 significant digits
-            except ValueError:
-                pass
+            case '=':
+                try:
+                    expr = sympy.sympify(self.current_value)        # string → expression
+                    self.current_value = str(sympy.N(expr))         # result
+                except Exception:
+                    self.current_value = "Error"
+                self.reset_next = True
 
-            return self.current_value
+                try:
+                    result = float(self.current_value)
+                    if result.is_integer():
+                        self.current_value = str(int(result))  # 5.0 -> 5
+                    else:
+                        self.current_value = f"{result:.13g}"  # limit to 13 significant digits
+                except ValueError:
+                    self.current_value = "Error"
+
+                return self.current_value
 
         # or just add the button text to the string
         if self.reset_next:
@@ -49,6 +95,11 @@ class CalculatorAPI:
         self.current_value += char
         
         return self.current_value   
+
+    # called when the user edits the input and hits Enter
+    def evaluate(self, text: str):
+        self.current_value = text
+        return self.button_pressed('=')
 
 if __name__ == '__main__':
     api = CalculatorAPI()

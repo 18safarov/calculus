@@ -46,6 +46,7 @@ In future releases the plan is to introduce an **Advanced Functions** extension,
 - Square root and nth-root functions - done
 - Power / factorial functions - done
 - Constants (π, e) - done 
-- Unit conversions (length, temperature)
-- Custom function definitions
+- Unit conversions (length, temperature) - done
+- Custom function definitions - done
+- Add keyboard support and show result by pressing Enter - done
 - User interface improvements (themes, responsive design)

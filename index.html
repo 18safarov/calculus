@@ -36,16 +36,16 @@
       <button onclick="send('**2')">x²</button>
       <button onclick="send('**')">xʸ</button>
 
-      <button onclick="send('km_to_mi')">km → mi</button>
-      <button onclick="send('mi_to_km')">mi → km</button>
-      <button onclick="send('c_to_f')">°C → °F</button>
-      <button onclick="send('f_to_c')">°F → °C</button>
+      <button class="transfer-function" onclick="send('km_to_mi')">km → mi</button>
+      <button class="transfer-function" onclick="send('mi_to_km')">mi → km</button>
+      <button class="transfer-function" onclick="send('c_to_f')">°C → °F</button>
+      <button class="transfer-function" onclick="send('f_to_c')">°F → °C</button>
 
     </div>
 
     <div class="calculator">
 
-      <input type="text" id="display" readonly value="0">
+      <input type="text" id="display" placeholder="0">
 
       <button class="opener" id="openerId">&lt;&lt;</button>
 
@@ -65,12 +65,12 @@
         <button onclick="send('3')">3</button>
         <button class="operator" onclick="send('-')">-</button>
 
-        <button onclick="send('0')">0</button>
+        <button class="zero" onclick="send('0')">0</button>
         <button onclick="send('.')">.</button>
-        <button class="operator" onclick="send('=')">=</button>
         <button class="operator" onclick="send('+')">+</button>
 
         <button class="clear" onclick="send('C')">C</button>
+        <button class="equal" onclick="send('=')">=</button>
       </div>
 
     </div>

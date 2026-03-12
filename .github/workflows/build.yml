@@ -24,7 +24,6 @@ jobs:
 
     - name: Install Linux dependencies
       if: runner.os == 'Linux'
-      # ВНИМАНИЕ: теперь тут устанавливаются ОБЕ версии (1.0 и 2.0)
       run: |
         sudo apt-get update
         sudo apt-get install -y libgirepository1.0-dev libgirepository-2.0-dev gcc libcairo2-dev pkg-config python3-dev gir1.2-gtk-3.0 gir1.2-webkit2-4.1
@@ -41,7 +40,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install pywebview sympy pyinstaller
 
-    - name: Build application with PyInstaller
+    - name: Build application (Linux)
+      if: runner.os == 'Linux'
+      # ВНИМАНИЕ СЮДА: Добавили принудительный сбор системных графических библиотек
+      run: |
+        pyinstaller --noconsole --onefile --collect-all gi --collect-all pywebview standalone_calc.py
+
+    - name: Build application (Mac)
+      if: runner.os == 'macOS'
+      # Мак собираем как обычно, ему эти флаги не нужны
       run: |
         pyinstaller --noconsole --onefile standalone_calc.py
 

@@ -2,6 +2,8 @@
 
 A desktop calculator application built with Python ([pywebview](https://pywebview.flowrl.com/) and [sympy](https://www.sympy.org/)). The UI is rendered using HTML/CSS/JS inside a native window, while all the math logic lives on the Python side.
 
+Fully portable: **no installation required!**
+
 ## Tech Stack
 
 | Layer | Technology |
@@ -10,18 +12,38 @@ A desktop calculator application built with Python ([pywebview](https://pywebvie
 | Frontend | HTML, CSS, JavaScript |
 | Bridge | pywebview JS API (`pywebview.api`) |
 
-## Getting Started
+## Features
 
-1. **Clone the repository**
+- **Standard & Advanced Math:** Trigonometric functions (sin, cos, tan), logarithms, square/nth roots, and factorials etc.
+- **Smart Constants:** Built-in support for constants like π and e.
+- **Unit Conversions:** Easily convert length and temperature.
+- **Keyboard Support:** Fully functional keyboard inputs (Press `Enter` to calculate).
+
+## Download & Run (For Users)
+
+You don't need to install Python or any dependencies to use Calculus. Just download the ready-to-use file for your operating system from the [Latest Release](https://github.com/safarsin/calculus/releases/latest) page!
+
+## Development Setup (For Developers)
+
+1. **Clone the Repo:**
+   ```bash
+   git clone https://github.com/safarsin/calculus.git
+   ```
 2. **Create and activate a virtual environment:**
    ```bash
+   # Windows
    python -m venv .venv
-   .venv\Scripts\activate   # Windows
+   .venv\Scripts\activate
+
+   # Linux / macOS
+   python3 -m venv .venv
+   source .venv/bin/activate
    ```
 3. **Install dependencies:**
    ```bash
    pip install pywebview sympy
    ```
+
 4. **Run the app:**
    ```bash
    python main.py
@@ -37,17 +59,3 @@ calculus/
 ├──  normalize.css    # CSS reset
 └──  transmitter.js   # JS bridge — sends button presses to Python
 ```
-
-## Roadmap
-
-In future releases the plan is to introduce an **Advanced Functions** extension, which will include:
-
-- Trigonometric functions (sin, cos, tan) - done
-- Logarithms and exponents - done
-- Square root and nth-root functions - done
-- Power / factorial functions - done
-- Constants (π, e) - done 
-- Unit conversions (length, temperature) - done
-- Custom function definitions - done
-- Add keyboard support and show result by pressing Enter - done
-- User interface improvements (themes, responsive design)

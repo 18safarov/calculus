@@ -101,7 +101,7 @@ class CalculatorAPI:
         self.current_value = text
         return self.button_pressed('=')
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     api = CalculatorAPI()
     window = webview.create_window(
         title='Calculus', 
